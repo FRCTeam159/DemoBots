@@ -1,0 +1,10 @@
+.settings/
+.metadata/
+RemoteSystemsTempFiles/
+Debug/
+linux_simulate/
+=======
+Debug/
+linux_simulate/
+*.o
+*.exe

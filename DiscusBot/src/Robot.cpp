@@ -31,6 +31,9 @@ private:
 		rearLeft = new CANTalon(2);
 		rearRight = new CANTalon(3);
 		liftMotor = new CANTalon(5);
+		liftMotor->ConfigLimitMode(CANTalon::kLimitMode_SwitchInputsOnly);
+		liftMotor->ConfigFwdLimitSwitchNormallyOpen(false);
+		liftMotor->ConfigRevLimitSwitchNormallyOpen(false);
 		shooterMotor = new CANTalon(6);
 		chooser = new SendableChooser();
 		chooser->AddDefault(autoNameDefault, (void*)&autoNameDefault);

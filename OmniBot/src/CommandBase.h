@@ -5,6 +5,7 @@
 #include "Commands/Command.h"
 #include "OI.h"
 #include "WPILib.h"
+#include "Subsystems/DriveTrain.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -19,7 +20,7 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<OI> oi;
-	static std::unique_ptr<DriveTrain> drivetrain;
+	static std::shared_ptr<DriveTrain> drivetrain;
 };
 
 #endif

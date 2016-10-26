@@ -1,9 +1,10 @@
 #include "DriveWithJoystick.h"
 
-DriveWithJoystick::DriveWithJoystick()
+DriveWithJoystick::DriveWithJoystick(): CommandBase("DriveWithJoystick")
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	Requires(drivetrain.get());
 }
 
 // Called just before this Command runs the first time
@@ -34,5 +35,5 @@ void DriveWithJoystick::End()
 // subsystems is scheduled to run
 void DriveWithJoystick::Interrupted()
 {
-
+	End();
 }

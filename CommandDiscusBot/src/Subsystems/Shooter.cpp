@@ -4,7 +4,7 @@
 Shooter::Shooter() :
 		Subsystem("Shooter")
 {
-	flywheelMotor = new CANTalon(1);
+	flywheelMotor = new CANTalon(FLYWHEELMOTORID);
 }
 
 void ExampleSubsystem::InitDefaultCommand()

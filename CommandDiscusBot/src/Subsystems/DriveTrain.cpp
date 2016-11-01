@@ -2,9 +2,13 @@
 #include "../RobotMap.h"
 
 DriveTrain::DriveTrain() :
-		Subsystem("DriveTrain")
+		Subsystem("DriveTrain"),
+		frontLeft(FRONTLEFT),
+		frontRight(FRONTRIGHT),
+		backLeft(BACKLEFT),
+		backRight(BACKRIGHT)
 {
-
+	drive = new RobotDrive(&frontLeft, &backLeft, &frontRight, &backRight);
 }
 
 void DriveTrain::InitDefaultCommand()

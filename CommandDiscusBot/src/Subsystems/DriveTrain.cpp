@@ -1,13 +1,13 @@
-#include "ExampleSubsystem.h"
+#include "DriveTrain.h"
 #include "../RobotMap.h"
 
-ExampleSubsystem::ExampleSubsystem() :
-		Subsystem("ExampleSubsystem")
+DriveTrain::DriveTrain() :
+		Subsystem("DriveTrain")
 {
 
 }
 
-void ExampleSubsystem::InitDefaultCommand()
+void DriveTrain::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
@@ -15,4 +15,3 @@ void ExampleSubsystem::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-

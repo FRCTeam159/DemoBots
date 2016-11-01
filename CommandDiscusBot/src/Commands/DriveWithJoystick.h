@@ -1,13 +1,13 @@
-#ifndef EXAMPLE_COMMAND_H
-#define EXAMPLE_COMMAND_H
+#ifndef DriveWithJoystick_H
+#define DriveWithJoystick_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ExampleCommand: public CommandBase
+class DriveWithJoystick: public CommandBase
 {
 public:
-	ExampleCommand();
+	DriveWithJoystick();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

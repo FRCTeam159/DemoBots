@@ -1,8 +1,8 @@
 #include "Lifter.h"
 #include "../RobotMap.h"
-
+#include "Commands/ControlLifter.h"
 Lifter::Lifter() :
-		Subsystem("lifter"), lifterMotor(0)
+		Subsystem("lifter"), lifterMotor(LIFT)
 {
 
 }
@@ -10,7 +10,7 @@ Lifter::Lifter() :
 void Lifter::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new ControlLifter());
 }
 
 // Put methods for controlling this subsystem

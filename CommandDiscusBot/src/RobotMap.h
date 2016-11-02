@@ -17,6 +17,8 @@ const int FRONTLEFT = 1;
 const int FRONTRIGHT = 4;
 const int BACKLEFT = 2;
 const int BACKRIGHT = 3;
+const int LIFT = 5;
+const int SHOOTER = 6;
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:

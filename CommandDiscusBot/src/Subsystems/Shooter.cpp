@@ -7,8 +7,10 @@ Shooter::Shooter() :
 	flywheelMotor = new CANTalon(FLYWHEELMOTORID);
 }
 
-void ExampleSubsystem::InitDefaultCommand()
+void Shooter::InitDefaultCommand()
 {
+
+
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 }

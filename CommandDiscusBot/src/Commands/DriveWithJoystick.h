@@ -13,6 +13,7 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
+	float quadDeadband(float minThreshold, float minOutput, float input);
 };
 
 #endif

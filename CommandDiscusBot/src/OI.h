@@ -5,10 +5,13 @@
 
 class OI
 {
-private:
+protected:
 
 public:
+	Joystick *stick;
 	OI();
+	Joystick *GetJoystick();
 };
+
 
 #endif

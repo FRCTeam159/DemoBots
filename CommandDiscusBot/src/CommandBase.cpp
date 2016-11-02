@@ -2,9 +2,10 @@
 #include "Subsystems/DriveTrain.h"
 #include "Commands/Scheduler.h"
 #include "Subsystems/Shooter.h"
+#include "WPILib.h"
 
 // Initialize a single static instance of all of your subsystems to NULL
-std::unique_ptr<DriveTrain> CommandBase::drivetrain;
+std::shared_ptr<DriveTrain> CommandBase::drivetrain;
 std::unique_ptr<OI> CommandBase::oi;
 std::shared_ptr<Shooter> CommandBase::shooter;
 

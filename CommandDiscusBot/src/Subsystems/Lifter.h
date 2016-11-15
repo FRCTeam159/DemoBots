@@ -3,6 +3,8 @@
 
 #include <CANTalon.h>
 #include <Commands/Subsystem.h>
+#include "RobotMap.h"
+
 
 class Lifter: public Subsystem
 {

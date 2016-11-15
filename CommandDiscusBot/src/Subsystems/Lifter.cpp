@@ -1,15 +1,11 @@
 #include "Lifter.h"
-#include "../RobotMap.h"
+#include "RobotMap.h"
 #include <Commands/Subsystem.h>
 #include "WPILib.h"
 
-int lifterUpSpeed(2);
-int lifterDownSpeed(3);
-int lifterUpButton(3);
-int lifterDownButton(4);
 
 Lifter::Lifter() :
-Subsystem("lifter"), lifterMotor(0)
+Subsystem("lifter"), lifterMotor(LIFT)
 {
 
 }
@@ -28,8 +24,7 @@ void Lifter::InitDefaultCommand()
 		{
 			lifterMotor->set(0);
 		}
-	}
-}
+	};
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 

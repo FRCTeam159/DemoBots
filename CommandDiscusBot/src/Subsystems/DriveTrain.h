@@ -18,6 +18,7 @@ public:
 	DriveTrain();
 	void InitDefaultCommand();
 	float quadDeadband(float minThreshold, float minOutput, float input);
+	void Drive(float xAxis, float yAxis, float zAxis);
 };
 
 #endif

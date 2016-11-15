@@ -4,7 +4,7 @@
 DriveWithJoystick::DriveWithJoystick()
 {
 	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(DriveTrain);
 }
 
 // Called just before this Command runs the first time
@@ -17,14 +17,15 @@ void DriveWithJoystick::Initialize()
 void DriveWithJoystick::Execute()
 {
 	// Get axis values
-		Joystick *stick = oi->GetJoystick();
-			float yAxis = stick-> GetY();
-			float xAxis = stick-> GetX();
-			float zAxis = stick-> GetZ();
-			// Run axis values through deadband
-			yAxis = quadDeadband(.6, .3, yAxis);
-			xAxis = quadDeadband(.6, .3, xAxis);
-			zAxis = quadDeadband(.6, .3, zAxis);
+	Joystick *stick = oi->GetJoystick();
+	float yAxis = stick-> GetY();
+	float xAxis = stick-> GetX();
+	float zAxis = stick-> GetZ();
+	// Run axis values through deadband
+	yAxis = quadDeadband(.6, .3, yAxis);
+	xAxis = quadDeadband(.6, .3, xAxis);
+	zAxis = quadDeadband(.6, .3, zAxis);
+	drivetrain.get()->Drive(xAxis, yAxis, zAxis);
 }
 
 // Make this return true when this Command no longer needs to run execute()

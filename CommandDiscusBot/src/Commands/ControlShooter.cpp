@@ -1,4 +1,5 @@
 #include "ControlShooter.h"
+#include "Subsystems/Shooter.h"
 
 ControlShooter::ControlShooter()
 {

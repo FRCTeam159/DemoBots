@@ -1,6 +1,6 @@
 #ifndef DriveTrain_H
 #define DriveTrain_H
-
+#include "WPILib.h"
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 
@@ -17,6 +17,7 @@ private:
 public:
 	DriveTrain();
 	void InitDefaultCommand();
+	float quadDeadband(float minThreshold, float minOutput, float input);
 };
 
 #endif

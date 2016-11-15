@@ -1,8 +1,8 @@
 #ifndef Lifter_H
 #define Lifter_H
 
-#include "Commands/Subsystem.h"
-#include "WPILib.h"
+#include <CANTalon.h>
+#include <Commands/Subsystem.h>
 
 class Lifter: public Subsystem
 {
@@ -11,8 +11,7 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
-	Lifter();
-	void InitDefaultCommand();
-};
 
+	void Lifter::moveLifter();
+};
 #endif

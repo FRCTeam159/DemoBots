@@ -1,5 +1,6 @@
 #include "Shooter.h"
 #include "../RobotMap.h"
+#include "Commands/ControlShooter.h"
 
 Shooter::Shooter() :
 		Subsystem("Shooter")
@@ -9,7 +10,7 @@ Shooter::Shooter() :
 
 void Shooter::InitDefaultCommand()
 {
-
+SetDefaultCommand(new ControlShooter());
 
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());

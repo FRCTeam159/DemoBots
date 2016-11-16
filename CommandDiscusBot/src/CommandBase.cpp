@@ -2,11 +2,13 @@
 #include "Subsystems/DriveTrain.h"
 #include "Commands/Scheduler.h"
 #include "Subsystems/Shooter.h"
+#include "Subsystems/Lifter.h"
 #include "WPILib.h"
 
 // Initialize a single static instance of all of your subsystems to NULL
 std::unique_ptr<DriveTrain> CommandBase::drivetrain;
 std::unique_ptr<OI> CommandBase::oi;
+std::unique_ptr<Lifter> CommandBase::lifter;
 std::unique_ptr<Shooter> CommandBase::shooter;
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
@@ -24,6 +26,6 @@ void CommandBase::init()
 	// line should be repeated for each subsystem in the project.
 	drivetrain.reset(new DriveTrain());
 	shooter.reset (new Shooter());
-
+	lifter.reset(new Lifter())
 	oi.reset(new OI());
 }

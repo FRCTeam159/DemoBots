@@ -14,6 +14,6 @@ private:
 	// for methods that implement subsystem capabilities
 public:
 
-	void Lifter::moveLifter();
+	void Lifter::moveLifter(float power);
 };
 #endif

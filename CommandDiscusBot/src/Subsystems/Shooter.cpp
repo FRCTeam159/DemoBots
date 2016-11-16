@@ -7,16 +7,33 @@ Shooter::Shooter() :
 		Subsystem("Shooter")
 {
 	flywheelMotor = new CANTalon(FLYWHEELMOTORID);
+	shooterPneumatic = new DoubleSolenoid(7,0,1);
 }
 
 void Shooter::InitDefaultCommand()
 {
-SetDefaultCommand(new ControlShooter());
-
-	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new ControlShooter());
 }
 
+void Shooter::FlyWheelOn()
+{
+	flywheelMotor->Set(-1);
+}
+
+void Shooter::FlyWheelOff()
+{
+	flywheelMotor->Set(0);
+}
+
+void Shooter::PistonIn()
+{
+shooterPneumatic->Set(DoubleSolenoid::kReverse);
+}
+
+void Shooter::PistonOff()
+{
+shooterPneumatic->Set(DoubleSolenoid::kForward);
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 

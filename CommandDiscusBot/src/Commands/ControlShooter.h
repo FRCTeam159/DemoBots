@@ -8,6 +8,20 @@ class ControlShooter: public CommandBase
 {
 private:
 	double shooterpos;
+	bool *wheelOutput;
+	bool *wheelPInput;
+
+	bool toggle(bool input, bool* loutput, bool* pinput) {
+		if (input && !(*pinput)) {
+			(*loutput) = !(*loutput);
+			(*pinput) = input;
+			return (*loutput);
+		} else {
+			(*pinput) = input;
+			return (*loutput);
+		}
+	}
+
 public:
 	ControlShooter();
 	void Initialize();

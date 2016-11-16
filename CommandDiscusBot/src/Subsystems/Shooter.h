@@ -8,11 +8,16 @@ class Shooter: public Subsystem
 {
 private:
 	CANTalon *flywheelMotor;
+	DoubleSolenoid *shooterPneumatic;
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
 	Shooter();
 	void InitDefaultCommand();
+	void FlyWheelOn();
+	void FlyWheelOff();
+	void PistonIn ();
+	void PistonOff ();
 };
 
 #endif

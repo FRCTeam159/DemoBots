@@ -4,7 +4,7 @@
 ControlShooter::ControlShooter()
 {
 	// Use Requires() here to declare subsystem dependencies
-	Requires(Shooter);
+	Requires(shooter.get());
 }
 
 // Called just before this Command runs the first time
@@ -18,15 +18,17 @@ void ControlShooter::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ControlShooter::Execute()
 {
+	Joystick *stick=CommandBase::oi.get()->GetJoystick();
 	if (toggle(stick->GetRawButton(2), wheelOutput, wheelPInput))
 		shooter.get()->FlyWheelOn();
 	else
 		shooter.get()->FlyWheelOff();
 
+
 	if (stick->GetRawButton(1))
-		shooterPneumatic->Set(DoubleSolenoid::kReverse);
+		shooter.get()->PistonIn();
 	else
-		shooterPneumatic->Set(DoubleSolenoid::kForward);
+		shooter.get()->PistonOut();
 }
 
 // Make this return true when this Command no longer needs to run execute()

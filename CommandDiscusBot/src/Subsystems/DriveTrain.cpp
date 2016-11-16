@@ -1,5 +1,7 @@
 #include "DriveTrain.h"
 #include "../RobotMap.h"
+#include "Commands/DriveWithJoystick.h"
+#include "WPILib.h"
 
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain"),
@@ -14,8 +16,11 @@ DriveTrain::DriveTrain() :
 void DriveTrain::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new DriveWithJoystick());
 }
-
+void DriveTrain::Drive(float xAxis, float yAxis, float zAxis)
+{
+	drive->MecanumDrive_Cartesian(xAxis, yAxis, zAxis);
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

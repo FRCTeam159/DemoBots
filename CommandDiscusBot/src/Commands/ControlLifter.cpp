@@ -4,6 +4,8 @@ ControlLifter::ControlLifter()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	Requires(lifter);
+	Requires(oi);
 }
 
 // Called just before this Command runs the first time
@@ -15,7 +17,19 @@ std::cout<<"Control Lifter Intialize"<<std::endl;
 // Called repeatedly when this Command is scheduled to run
 void ControlLifter::Execute()
 {
-
+	Joystick* stick=oi->GetJoystick();
+	if (stick->GetRawButton(lifterUpButton))
+	{
+		lifter->moveLifter(lifterUpSpeed);
+	}
+	else if (stick->GetRawButton(lifterDownButton))
+	{
+		lifter->moveLifter(lifterDownSpeed);
+	}
+	else
+	{
+		lifter->moveLifter(0);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()

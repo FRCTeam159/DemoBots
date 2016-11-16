@@ -6,6 +6,8 @@
 
 class ControlLifter: public CommandBase
 {
+private:
+
 public:
 	ControlLifter();
 	void Initialize();

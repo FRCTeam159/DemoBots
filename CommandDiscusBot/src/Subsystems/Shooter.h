@@ -17,7 +17,7 @@ public:
 	void FlyWheelOn();
 	void FlyWheelOff();
 	void PistonIn ();
-	void PistonOff ();
+	void PistonOut ();
 };
 
 #endif

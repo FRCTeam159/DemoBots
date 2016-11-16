@@ -30,7 +30,7 @@ void Shooter::PistonIn()
 shooterPneumatic->Set(DoubleSolenoid::kReverse);
 }
 
-void Shooter::PistonOff()
+void Shooter::PistonOut()
 {
 shooterPneumatic->Set(DoubleSolenoid::kForward);
 }

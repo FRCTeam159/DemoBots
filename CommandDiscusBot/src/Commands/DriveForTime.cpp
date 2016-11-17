@@ -14,13 +14,20 @@ DriveForTime::DriveForTime(time, speed)
 // Called just before this Command runs the first time
 void DriveForTime::Initialize()
 {
-	Timer::GetFPGATimestamp();
+	targetTime = Timer::GetFPGATimestamp() + time;
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveForTime::Execute()
 {
+	currentTime = Timer::GetFPGATimestamp();
+	if(currentTime >= targetTime){
+		drive->MecanumDrive_Cartesian(0,0,0);
+		IsFinished(true);
+	} else {
+		drive->MecanumDrive_Cartesian(0, speed, 0);
+	}
 
 }
 

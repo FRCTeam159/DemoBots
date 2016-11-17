@@ -2,7 +2,6 @@
 #define DriveTrain_H
 #include "WPILib.h"
 #include "Commands/Subsystem.h"
-#include "WPILib.h"
 
 class DriveTrain: public Subsystem
 {

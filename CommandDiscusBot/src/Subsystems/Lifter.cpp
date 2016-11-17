@@ -1,6 +1,6 @@
-#include "Lifter.h"
+#include "Subsystems/Lifter.h"
 #include "RobotMap.h"
-#include <Commands/Subsystem.h>
+#include <Commands/ControlLifter.h>
 #include "WPILib.h"
 
 

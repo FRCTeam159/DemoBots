@@ -1,17 +1,18 @@
 #include "ControlLifter.h"
+#include "Subsystems/Lifter.h"
 
 ControlLifter::ControlLifter()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(lifter);
-	Requires(oi);
+	Requires(lifter.get());
+	//Requires(oi.get());
 }
 
 // Called just before this Command runs the first time
 void ControlLifter::Initialize()
 {
-std::cout<<"Control Lifter Intialize"<<std::endl;
+std::cout<<"Control Lifter Initialize"<<std::endl;
 }
 
 // Called repeatedly when this Command is scheduled to run

@@ -1,8 +1,7 @@
 #ifndef Lifter_H
 #define Lifter_H
 
-#include <CANTalon.h>
-#include <Commands/Subsystem.h>
+#include "WPILib.h"
 #include "RobotMap.h"
 
 
@@ -13,7 +12,8 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
-
-	void Lifter::moveLifter(float power);
+	Lifter();
+	void InitDefaultCommand();
+	void moveLifter(float power);
 };
 #endif

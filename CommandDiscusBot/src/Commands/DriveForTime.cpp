@@ -1,40 +1,42 @@
-#include "DriveForTime.h"
+#include "Commands/DriveForTime.h"
 #include "WPILib.h"
-#include "../RobotMap.h"
+#include "RobotMap.h"
 #include "Subsystems/DriveTrain.h"
 
-DriveForTime::DriveForTime(time, speed)
+DriveForTime::DriveForTime(double t, double s) : CommandBase("DriveTrain")
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(DriveTrain);
-	drive = new RobotDrive(&frontLeft, &backLeft, &frontRight, &backRight);
+	Requires(drivetrain.get());
+	time = t;
+	speed = s;
 }
 
 // Called just before this Command runs the first time
 void DriveForTime::Initialize()
 {
 	targetTime = Timer::GetFPGATimestamp() + time;
-
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveForTime::Execute()
 {
-	currentTime = Timer::GetFPGATimestamp();
-	if(currentTime >= targetTime){
-		drive->MecanumDrive_Cartesian(0,0,0);
-		IsFinished(true);
-	} else {
-		drive->MecanumDrive_Cartesian(0, speed, 0);
-	}
+	drivetrain.get()->Drive(speed, 0, 0);
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DriveForTime::IsFinished()
 {
+	currentTime = Timer::GetFPGATimestamp();
+	if(currentTime >= targetTime)
+	{
+		return true;
+	}
+	else
+	{
 	return false;
+	}
 }
 
 // Called once after isFinished returns true

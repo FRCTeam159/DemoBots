@@ -3,10 +3,11 @@
 
 #include "WPILib.h"
 
-const float lifterUpSpeed=.5;
-const float lifterDownSpeed=-.5;
-const int lifterUpButton=3;
-const int lifterDownButton=4;
+const float LIFTERUPSPEED=.5;
+const float LIFTERDOWNSPEED=-.5;
+const int LIFTERUPBUTTON=3;
+const int LIFTERDOWNBUTTON=4;
+const int SHOOTERFLYWHEELBUTTON=2;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -20,9 +21,10 @@ const int FRONTLEFT = 1;
 const int FRONTRIGHT = 4;
 const int BACKLEFT = 2;
 const int BACKRIGHT = 3;
-const int STICK = 0;
 const int LIFT = 5;
 const int SHOOTER = 6;
+
+const int STICK = 0;
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:

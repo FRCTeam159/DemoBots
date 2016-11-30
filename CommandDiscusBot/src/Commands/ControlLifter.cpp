@@ -19,13 +19,13 @@ std::cout<<"Control Lifter Initialize"<<std::endl;
 void ControlLifter::Execute()
 {
 	Joystick* stick=oi->GetJoystick();
-	if (stick->GetRawButton(lifterUpButton))
+	if (stick->GetRawButton(LIFTERUPBUTTON))
 	{
-		lifter->moveLifter(lifterUpSpeed);
+		lifter->moveLifter(LIFTERUPSPEED);
 	}
-	else if (stick->GetRawButton(lifterDownButton))
+	else if (stick->GetRawButton(LIFTERDOWNBUTTON))
 	{
-		lifter->moveLifter(lifterDownSpeed);
+		lifter->moveLifter(LIFTERDOWNSPEED);
 	}
 	else
 	{

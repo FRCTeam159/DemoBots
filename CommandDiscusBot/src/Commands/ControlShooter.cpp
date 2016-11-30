@@ -5,21 +5,22 @@ ControlShooter::ControlShooter()
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(shooter.get());
+	wheelOutput = new bool;
+	wheelPInput = new bool;
 }
 
 // Called just before this Command runs the first time
 void ControlShooter::Initialize()
 {
-	wheelOutput = new bool;
-	wheelPInput = new bool;
-
+	*wheelPInput = false;
+	*wheelOutput = false;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ControlShooter::Execute()
 {
 	Joystick *stick=CommandBase::oi.get()->GetJoystick();
-	if (toggle(stick->GetRawButton(2), wheelOutput, wheelPInput))
+	if (toggle(stick->GetRawButton(SHOOTERFLYWHEELBUTTON), wheelOutput, wheelPInput))
 		shooter.get()->FlyWheelOn();
 	else
 		shooter.get()->FlyWheelOff();

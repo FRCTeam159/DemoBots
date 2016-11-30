@@ -7,7 +7,6 @@ const float lifterUpSpeed=.5;
 const float lifterDownSpeed=-.5;
 const int lifterUpButton=3;
 const int lifterDownButton=4;
-const int FLYWHEELMOTORID=1;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking

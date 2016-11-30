@@ -6,7 +6,7 @@
 Shooter::Shooter() :
 		Subsystem("Shooter")
 {
-	flywheelMotor = new CANTalon(FLYWHEELMOTORID);
+	flywheelMotor = new CANTalon(SHOOTER);
 	shooterPneumatic = new DoubleSolenoid(7,0,1);
 }
 

@@ -21,7 +21,7 @@ void DriveForTime::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveForTime::Execute()
 {
-	drivetrain.get()->Drive(speed, 0, 0);
+	drivetrain.get()->Drive(0, speed, 0);
 
 }
 

@@ -2,6 +2,7 @@
 #include "Commands/Command.h"
 #include "Commands/DriveWithJoystick.h"
 #include "CommandBase.h"
+#include "Autonomous.h"
 
 class Robot: public IterativeRobot
 {
@@ -50,7 +51,7 @@ private:
 			autonomousCommand.reset(new ExampleCommand());
 		} */
 
-		autonomousCommand.reset((Command *)chooser->GetSelected());
+		autonomousCommand.reset(new Autonomous());
 
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();

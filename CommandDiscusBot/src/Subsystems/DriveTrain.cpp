@@ -11,6 +11,8 @@ DriveTrain::DriveTrain() :
 		backRight(BACKRIGHT)
 {
 	drive = new RobotDrive(&frontLeft, &backLeft, &frontRight, &backRight);
+	drive->SetInvertedMotor(RobotDrive::kFrontLeftMotor,true);
+	drive->SetInvertedMotor(RobotDrive::kRearLeftMotor,true);
 }
 
 void DriveTrain::InitDefaultCommand()

@@ -26,6 +26,8 @@ private:
      */
 	void DisabledInit()
 	{
+		CommandBase::lifter.get()->Reset();
+		std::cout<<"DisabledInit"<<std::endl;
 	}
 
 	void DisabledPeriodic()
@@ -55,6 +57,7 @@ private:
 
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
+		std::cout<<"StartingAutonomous"<<std::endl;
 	}
 
 	void AutonomousPeriodic()
@@ -70,6 +73,8 @@ private:
 		// this line or comment it out.
 		if (autonomousCommand != NULL)
 			autonomousCommand->Cancel();
+		std::cout<<"StartingTeleop"<<std::endl;
+
 	}
 
 	void TeleopPeriodic()

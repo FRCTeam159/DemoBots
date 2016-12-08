@@ -15,5 +15,7 @@ public:
 	Lifter();
 	void InitDefaultCommand();
 	void moveLifter(float power);
+	double GetPosition();
+	void Reset();
 };
 #endif

@@ -21,16 +21,17 @@ void ControlLifter::Execute()
 	Joystick* stick=oi->GetJoystick();
 	if (stick->GetRawButton(LIFTERUPBUTTON))
 	{
-		lifter->moveLifter(LIFTERUPSPEED);
+		lifter.get()->moveLifter(LIFTERUPSPEED);
 	}
 	else if (stick->GetRawButton(LIFTERDOWNBUTTON))
 	{
-		lifter->moveLifter(LIFTERDOWNSPEED);
+		lifter.get()->moveLifter(LIFTERDOWNSPEED);
 	}
 	else
 	{
-		lifter->moveLifter(0);
+		lifter.get()->moveLifter(0);
 	}
+	std::cout<<"position ="<< lifter.get()->GetPosition()<<std::endl;
 }
 
 // Make this return true when this Command no longer needs to run execute()

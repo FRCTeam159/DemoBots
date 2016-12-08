@@ -2,12 +2,22 @@
 #include "RobotMap.h"
 #include <Commands/ControlLifter.h>
 #include "WPILib.h"
-
+#define ENCODER_TICKS 64
+#define GEAR_REDUCTION 1
+#define DIAMETER 3
 
 Lifter::Lifter() :
 Subsystem("lifter"), lifterMotor(LIFT)
 {
+	double ticksPerRev =(double)ENCODER_TICKS * GEAR_REDUCTION;
+	lifterMotor.ConfigLimitMode(CANTalon::kLimitMode_SwitchInputsOnly);
+	lifterMotor.ConfigFwdLimitSwitchNormallyOpen(false);
+	lifterMotor.ConfigRevLimitSwitchNormallyOpen(false);
+	lifterMotor.Enable();
 
+	//lifterMotor.ConfigEncoderCodesPerRev(ticksPerRev);
+	//lifterMotor.SetFeedbackDevice(CANTalon::QuadEncoder);
+//lifterMotor.EnableControl();
 }
 void Lifter::moveLifter(float power)
 {
@@ -18,6 +28,17 @@ void Lifter::InitDefaultCommand()
 {
 	SetDefaultCommand (new ControlLifter());
 };
+
+double Lifter::GetPosition()
+{
+	return lifterMotor.GetPosition();
+}
+;
+
+void Lifter::Reset() {
+	lifterMotor.Reset();
+	lifterMotor.Enable();
+}
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 

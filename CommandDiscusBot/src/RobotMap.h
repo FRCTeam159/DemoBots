@@ -2,7 +2,7 @@
 #define ROBOTMAP_H
 
 #include "WPILib.h"
-
+using namespace std;
 const float LIFTERUPSPEED=.5;
 const float LIFTERDOWNSPEED=-.5;
 const int LIFTERUPBUTTON=3;

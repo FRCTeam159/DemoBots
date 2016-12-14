@@ -3,7 +3,7 @@
 #include "Commands/DriveWithJoystick.h"
 #include "CommandBase.h"
 #include "Autonomous.h"
-
+using namespace std;
 class Robot: public IterativeRobot
 {
 private:

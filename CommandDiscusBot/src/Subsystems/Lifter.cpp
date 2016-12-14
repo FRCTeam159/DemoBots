@@ -5,7 +5,6 @@
 #define ENCODER_TICKS 64
 #define GEAR_REDUCTION 1
 #define DIAMETER 3
-
 Lifter::Lifter() :
 Subsystem("lifter"), lifterMotor(LIFT)
 {
@@ -16,7 +15,7 @@ Subsystem("lifter"), lifterMotor(LIFT)
 	lifterMotor.Enable();
 
 	//lifterMotor.ConfigEncoderCodesPerRev(ticksPerRev);
-	//lifterMotor.SetFeedbackDevice(CANTalon::QuadEncoder);
+	lifterMotor.SetFeedbackDevice(CANTalon::QuadEncoder);
 //lifterMotor.EnableControl();
 }
 void Lifter::moveLifter(float power)
@@ -38,6 +37,21 @@ double Lifter::GetPosition()
 void Lifter::Reset() {
 	lifterMotor.Reset();
 	lifterMotor.Enable();
+}
+
+bool Lifter::FindZero() {
+	if(FoundZero){
+		return true;
+	} else {
+		lifterMotor.Set(-0.2);
+		if(lifterMotor.IsRevLimitSwitchClosed()){
+			FoundZero = true;
+			lifterMotor.SetPosition(0);
+			cout<<"Zero Position Found"<<endl;
+			return true;
+		}
+		return false;
+	}
 }
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());

@@ -11,11 +11,13 @@ private:
 	CANTalon lifterMotor;
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
+	bool FoundZero = false;
 public:
 	Lifter();
 	void InitDefaultCommand();
 	void moveLifter(float power);
 	double GetPosition();
 	void Reset();
+	bool FindZero();
 };
 #endif

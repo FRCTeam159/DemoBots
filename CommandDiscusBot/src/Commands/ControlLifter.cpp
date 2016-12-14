@@ -35,7 +35,7 @@ void ControlLifter::Execute()
 	{
 		lifter.get()->moveLifter(0);
 	}
-	cout<<"position ="<< lifter.get()->GetPosition()<<std::endl;
+	//cout<<"position = "<< lifter.get()->GetPosition()<<std::endl;
 }
 
 // Make this return true when this Command no longer needs to run execute()

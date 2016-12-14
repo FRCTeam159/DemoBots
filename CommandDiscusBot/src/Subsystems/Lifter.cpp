@@ -43,10 +43,11 @@ bool Lifter::FindZero() {
 	if(FoundZero){
 		return true;
 	} else {
-		lifterMotor.Set(-0.2);
-		if(lifterMotor.IsRevLimitSwitchClosed()){
+		lifterMotor.Set(0.5);
+		cout<<"FindZero called"<<endl;
+		if(!lifterMotor.IsFwdLimitSwitchClosed()){
 			FoundZero = true;
-			lifterMotor.SetPosition(0);
+			//lifterMotor.SetPosition(0);
 			cout<<"Zero Position Found"<<endl;
 			return true;
 		}

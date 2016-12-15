@@ -13,6 +13,7 @@ Subsystem("lifter"), lifterMotor(LIFT)
 	lifterMotor.ConfigFwdLimitSwitchNormallyOpen(false);
 	lifterMotor.ConfigRevLimitSwitchNormallyOpen(false);
 	lifterMotor.Enable();
+	lifterMotor.SetInverted(true);
 
 	//lifterMotor.ConfigEncoderCodesPerRev(ticksPerRev);
 	lifterMotor.SetFeedbackDevice(CANTalon::QuadEncoder);
@@ -21,6 +22,7 @@ Subsystem("lifter"), lifterMotor(LIFT)
 void Lifter::moveLifter(float power)
 {
 	lifterMotor.Set(power);
+	cout << lifterMotor.GetPosition() << endl;
 
 };
 void Lifter::InitDefaultCommand()
@@ -35,19 +37,20 @@ double Lifter::GetPosition()
 ;
 
 void Lifter::Reset() {
-	lifterMotor.Reset();
-	lifterMotor.Enable();
+//	lifterMotor.Reset();
+	//lifterMotor.Enable();
+	FoundZero = false;
 }
 
 bool Lifter::FindZero() {
 	if(FoundZero){
 		return true;
 	} else {
-		lifterMotor.Set(0.5);
+		lifterMotor.Set(-0.5);
 		cout<<"FindZero called"<<endl;
-		if(!lifterMotor.IsFwdLimitSwitchClosed()){
+		if(!lifterMotor.IsFwdLimitSwitchClosed()){	// This is lower limit switch
 			FoundZero = true;
-			//lifterMotor.SetPosition(0);
+			lifterMotor.SetPosition(0);
 			cout<<"Zero Position Found"<<endl;
 			return true;
 		}

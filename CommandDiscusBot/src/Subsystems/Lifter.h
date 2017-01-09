@@ -3,7 +3,7 @@
 
 #include "WPILib.h"
 #include "RobotMap.h"
-
+#include "CANTalon.h"
 
 class Lifter: public Subsystem
 {

@@ -8,15 +8,15 @@ class Robot: public IterativeRobot
 {
 private:
 	std::unique_ptr<Command> autonomousCommand;
-	SendableChooser *chooser;
+	//SendableChooser *chooser;
 
 	void RobotInit()
 	{
 		CommandBase::init();
-		chooser = new SendableChooser();
+		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
 		//chooser->AddObject("My Auto", new MyAutoCommand());
-		SmartDashboard::PutData("Auto Modes", chooser);
+		//SmartDashboard::PutData("Auto Modes", chooser);
 	}
 
 	/**
